@@ -1,0 +1,55 @@
+package year_2016.polygongame;
+
+public class Node {
+	private float x, y;
+	private int value;
+	private int color;
+	private Edge e1, e2;
+	
+	public Node(float x, float y) {
+		// TODO Auto-generated constructor stub
+		this.x = x;
+		this.y = y;
+		this.color = (int)(Math.random() * 10);
+	}
+	public void setEdge(Edge e){
+		if(e1 == null)
+			e1 = e;
+		else 
+			e2 = e;
+	}
+	public Edge getOtherEdge(Edge e){
+		if(e == e1 && e2 != null)
+			return e2;
+		else if(e1 != null)
+			return e1;
+		else 
+			return null;
+	}
+	public void setValue(int value){
+		this.value = value;
+	}
+	public int getValue(){
+		return value;
+	}
+	public float getX(){
+		return x;
+	}
+	public float getY(){
+		return y;
+	}
+	public int getColor(){
+		return color;
+	}
+	public void setColor(int color1,int color2){
+		this.color = (color1 + color2) % 10;
+	}
+	public void mergeAdd(Node p){
+		setColor(color, p.getColor());
+		this.value += p.getValue();
+	}
+	public void mergeMulti(Node p){
+		setColor(color, p.getColor());
+		this.value *= p.getValue();
+	}
+}

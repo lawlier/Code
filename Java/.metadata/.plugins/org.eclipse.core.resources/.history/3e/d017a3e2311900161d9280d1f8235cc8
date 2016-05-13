@@ -1,0 +1,58 @@
+package year_2016.polygongame;
+/*
+ * 边类
+ * 
+ */
+public class Edge {
+	private Node p1, p2; //与边直接相连的两个顶点
+	private int index;//边的序号
+	private char op; //操作符
+	public Edge(Node p1, Node p2, char op, int index){
+		this.p1 = p1;
+		this.p2 = p2;
+		this.index = index;
+		this.op = op;
+		p1.setEdge(this);
+		p2.setEdge(this);
+	}
+	public void setNode(Node p1, Node p2, Node p){
+		if( this.p1 == p1 || this.p2 == p1 )
+			this.p1 = p;
+		else if( this.p2 == p1 || this.p2 == p2){
+			this.p2 = p;
+		}
+	}
+
+	public void setNode1(Node p){
+		this.p1 = p;
+	}
+	public void setNode2(Node p){
+		this.p2 = p;
+	}
+	public Node getNode1(){
+		return p1;
+	}
+	public Node getNode2(){
+		return p2;
+	}
+	public char getOp(){
+		return op;
+	}
+	public void merge(){
+		Node p = null;
+		if(op == '+'){
+			p = p1.mergeAdd(p2);
+		}else{
+			p = p1.mergeMulti(p2);
+		}
+		Edge otherEdge1 = p1.getOtherEdge(this);
+		if(otherEdge1 != null){
+			otherEdge1.setNode(p1,p2,p);
+		}
+		Edge otherEdge2 = p2.getOtherEdge(this);
+		if(otherEdge1 != null){
+			otherEdge1.setNode(p1,p2,p);
+		}
+	}
+	
+}

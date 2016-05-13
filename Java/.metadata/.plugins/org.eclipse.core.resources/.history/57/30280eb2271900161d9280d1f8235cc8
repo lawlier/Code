@@ -1,0 +1,31 @@
+package year_2016.polygongame;
+
+public class Node {
+	private float x, y;
+	private int value;
+	private int color;
+	public Node(float x, float y) {
+		// TODO Auto-generated constructor stub
+		this.x = x;
+		this.y = y;
+		this.color = (int)(Math.random() * 10);
+	}
+	public void setValue(int value){
+		this.value = value;
+	}
+	public int getValue(){
+		return value;
+	}
+	public float getX(){
+		return x;
+	}
+	public float getY(){
+		return y;
+	}
+	public int color(){
+		return color;
+	}
+	public void color(int color1,int color2){
+		this.color = (color1 + color2) % 10;
+	}
+}
