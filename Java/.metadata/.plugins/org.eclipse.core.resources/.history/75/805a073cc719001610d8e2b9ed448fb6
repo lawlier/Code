@@ -1,0 +1,30 @@
+package acm;
+
+import java.util.*;
+
+public class Main {
+	public static int c(int n, int m){
+		
+		return 0;
+	}
+	public static int a(int n, int m){
+		int res = 1;
+		for(int i = n; i >= n - m + 1; i++){
+			res *= i;
+		}
+		return res;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(a(4,2));
+		Scanner sc = new Scanner(System.in);
+		while(sc.hasNext()){
+			int n = sc.nextInt();
+			int ans = 0;
+			for(int i = 0; i < n/2; i++){
+				
+			}
+		}
+	}
+
+}

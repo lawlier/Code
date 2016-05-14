@@ -28,7 +28,7 @@ int main()
 			scanf("%d",&x); 
 			it = s.lower_bound(x);
 			if(it == s.end()){
-				printf("#\n");
+				printf("###\n");
 				continue;
 			}
 			y = *it;
