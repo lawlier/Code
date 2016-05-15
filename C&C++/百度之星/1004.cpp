@@ -18,7 +18,6 @@ int main()
 	while(scanf("%d",&n)!=EOF)
 	{
 		multiset<string> ss;
-		
 		for(int i = 0; i < n; i++){
 			scanf("%s",a);
 			int len = strlen(a);
