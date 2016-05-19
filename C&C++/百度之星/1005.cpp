@@ -8,7 +8,6 @@
 #include<queue>
 #include<string>
 using namespace std;
-
 map<string,int> mleft[1010];
 map<string,int> mright[1010];
 char line[100000];
@@ -28,30 +27,18 @@ int insert(map<string, int> &left, map<string, int> &right,string var, string op
 			right[var] =x;
 			return 0;
 		}
-		
 		left[var] = r;
 		right[var] = l;
-		return 0; 
 	}
-	if(op == ">="){
+	if(op == ">=")
 		left[var] = max(left[var], x);
-		
-		return 1;
-	}
-	if(op == ">"){
+	if(op == ">")
 		left[var] = max(left[var],x + 1);
-		return 2;
-	}
-	if(op == "<"){
+	if(op == "<")
 		right[var] = min(right[var], x - 1);
-		return 3;
-	}
-	if(op == "<="){
+	if(op == "<=")
 		right[var] = min(right[var], x);
-		return 4;
-	}
-	else 
-		return -1;
+	return 1;
 }
 int isEmptySet(map<string,int> left, map<string,int> right)
 {
@@ -112,7 +99,6 @@ int main()
 				insert(mleft[i],mright[i],var,op,x);	
 			}		
 			if(i == 0 || isEmptySet(mleft[i],mright[i])){
-				
 				printf("unique\n");
 				continue;
 			}
